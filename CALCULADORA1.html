@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplicaciones Geniales 🧠✨</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to right, #c2f0f7, #d1fcd3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 4px solid #4fc3f7;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 450px;
+    }
+
+    h1 {
+      color: #0288d1;
+      margin-bottom: 10px;
+    }
+
+    .character {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-size: 26px;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    input {
+      font-size: 22px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #888;
+      width: 100px;
+      text-align: center;
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #0288d1;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0277bd;
+    }
+
+    .feedback {
+      font-size: 22px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #2e7d32;
+    }
+
+    .incorrect {
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧠 Multiplicaciones Geniales 🦉</h1>
+    <div class="character" id="character">🦄</div>
+    <div class="question" id="question">¿Cuánto es 8 × 6?</div>
+    <input type="number" id="answerInput" placeholder="Tu respuesta">
+    <div>
+      <button onclick="checkAnswer()">Comprobar</button>
+      <button onclick="newQuestion()">Siguiente</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <script>
+    const characters = ['🦉', '🦄', '🐉', '🧸', '🐯', '🦜', '🐺', '🐬', '🦥', '🐲'];
+    let num1, num2;
+
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function newQuestion() {
+      num1 = getRandomInt(1, 12); // hasta la tabla del 12
+      num2 = getRandomInt(1, 12);
+      const character = characters[getRandomInt(0, characters.length - 1)];
+
+      document.getElementById('question').textContent = `¿Cuánto es ${num1} × ${num2}?`;
+      document.getElementById('character').textContent
